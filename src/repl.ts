@@ -1,23 +1,19 @@
 import { Interface } from "node:readline";
 import readline from "readline"
 import { getCommands } from "./commands.js";
+import { State } from "./state.js";
 
 
-export function startREPL(){
-    const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    prompt: "Pokedex > ",
+export function startREPL(state: State){
 
-    });
 
-    rl.prompt()
-    rl.on("line", (input) => {
+    state.rl.prompt()
+    state.rl.on("line", (input) => {
         const cleaned_input = cleanInput(input);
 
         if (cleaned_input.length === 0){
 
-            rl.prompt();
+            state.rl.prompt();
             return;
         }
 

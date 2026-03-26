@@ -1,4 +1,4 @@
-import type {CLICommand} from "./command.js";
+import type {CLICommand} from "./state.js";
 import {commandExit} from "./command_exit.js";
 import {commandHelp} from "./command_help.js";
 
@@ -17,6 +17,8 @@ export function getCommands(): Record<string, CLICommand> {
       description: "Exits the pokedex",
       callback: commandExit,
     },
+
+
 
   
     // can add more commands here
