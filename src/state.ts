@@ -29,11 +29,11 @@ export function initState():State{
                 description: "Displays a help message",
                 callback: commandHelp,
             },
-            exit: {
-              name: "exit",
-              description: "Exits the pokedex",
-              callback: commandExit,
-            },
+        exit: {
+            name: "exit",
+            description: "Exits the pokedex",
+            callback: commandExit,
+        },
 
     }
     return {rl,commands};
