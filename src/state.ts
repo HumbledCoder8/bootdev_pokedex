@@ -1,4 +1,6 @@
 import { createInterface, type Interface} from "readline";
+import {commandHelp} from "./command_help.js";
+import {commandExit} from "./command_exit.js";
 
 export type State = {
     rl: Interface,
@@ -19,5 +21,21 @@ export function initState():State{
         output: process.stdout,
         prompt: "Pokedex > ",
     });
+
+    const commands = {
+
+        help:{
+                name: "help",
+                description: "Displays a help message",
+                callback: commandHelp,
+            },
+            exit: {
+              name: "exit",
+              description: "Exits the pokedex",
+              callback: commandExit,
+            },
+
+    }
+    return {rl,commands};
 
 }

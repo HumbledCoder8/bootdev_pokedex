@@ -1,14 +1,12 @@
-import { Interface } from "node:readline";
-import readline from "readline"
-import { getCommands } from "./commands.js";
-import { State } from "./state.js";
+
+import type { State } from "./state.js";
 
 
 export function startREPL(state: State){
 
 
     state.rl.prompt()
-    state.rl.on("line", (input) => {
+    state.rl.on("line", (input) => { 
         const cleaned_input = cleanInput(input);
 
         if (cleaned_input.length === 0){
@@ -19,16 +17,20 @@ export function startREPL(state: State){
 
         //console.log(`Your command was: ${cleaned_input[0]}`);
 
-        try{
-            const input_command = getCommands();
-            const command = input_command[cleaned_input[0]];
-            command.callback(input_command);
+            const command = state.commands[cleaned_input[0]];
+            
+            if(!command){
+                console.log("Invalid command");
+            }
 
-        }
-        catch(error){
-            console.error(`Unknown Error`);
-        }
-        rl.prompt();
+            else{
+                command.callback(state);
+
+            }
+            
+
+    
+        state.rl.prompt();
 
     })
 

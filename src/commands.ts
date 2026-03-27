@@ -1,3 +1,6 @@
+//seems that everything gets moved to state.ts, into initState. Refactoring practice.
+
+
 import type {CLICommand} from "./state.js";
 import {commandExit} from "./command_exit.js";
 import {commandHelp} from "./command_help.js";
