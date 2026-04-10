@@ -1,3 +1,5 @@
+import { PassThrough } from "stream";
+
 export class PokeAPI {
   private static readonly baseURL = "https://pokeapi.co/api/v2";
 
@@ -28,7 +30,7 @@ export class PokeAPI {
   }
 
   async fetchLocation(locationName: string): Promise<Location> {
-    // implement this
+    throw new Error("Not implemented");
   }
 }
 
