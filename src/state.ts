@@ -3,6 +3,7 @@ import {commandHelp} from "./command_help.js";
 import {commandExit} from "./command_exit.js";
 import { commandMap } from "./command_map.js";
 import { PokeAPI } from "./pokeapi.js";
+import { commandMapb } from "./command_mapb.js";
 
 export type State = {
     rl: Interface,
@@ -46,6 +47,12 @@ export function initState():State{
             name: "map",
             description: "maps locations",
             callback: commandMap,
+        },
+
+        mapb: {
+            name: "mapb",
+            description: "previous map locations",
+            callback: commandMapb,
         }
 
     }
