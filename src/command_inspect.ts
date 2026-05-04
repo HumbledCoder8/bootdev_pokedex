@@ -28,10 +28,4 @@ export async function commandInspect(state:State, ...args:string[]){
 
 
 
-
-
-
-
-
-
 }
